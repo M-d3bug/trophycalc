@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#003087">
+  <title>TrophyCalc</title>
+  <link rel="icon" href="img/trophy/current/platinum.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 2rem;">
+      <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode">
+        <svg class="sun-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+        </svg>
+        <svg class="moon-icon" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="display: none;">
+          <path
+            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+        </svg>
+      </button>
+      <h1 class="title" style="margin-bottom: 0;">TrophyCalc</h1>
+      <button id="info-btn" class="info-btn" title="How it works">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path
+            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+        </svg>
+      </button>
+    </div>
+
+
+    <div class="content">
+      <div class="glass-card input-area">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <p class="input-area-text" style="margin-bottom: 0;">Trophy Collection</p>
+          <button id="clear-btn" class="clear-btn" title="Clear All Data">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+              <path fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+            </svg>
+            Clear
+          </button>
+        </div>
+        <div class="trophy-inputs">
+          <div>
+            <img src="img/trophy/previous/platinum.webp" alt="Platinum" class="trophy-image">
+            <input type="number" id="current-platinum" min="0" class="trophy-input" placeholder="0">
+          </div>
+          <div>
+            <img src="img/trophy/previous/gold.webp" alt="Gold" class="trophy-image">
+            <input type="number" id="current-gold" min="0" class="trophy-input" placeholder="0">
+          </div>
+          <div>
+            <img src="img/trophy/previous/silver.webp" alt="Silver" class="trophy-image">
+            <input type="number" id="current-silver" min="0" class="trophy-input" placeholder="0">
+          </div>
+          <div>
+            <img src="img/trophy/previous/bronze.webp" alt="Bronze" class="trophy-image">
+            <input type="number" id="current-bronze" min="0" class="trophy-input" placeholder="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="card current-level-card flip-container" id="progression-flip-card">
+        <div class="flip-inner">
+          <!-- Front Face: Existing Progression -->
+          <div class="flip-front">
+            <h2 class="card-title">Current Progression</h2>
+            <div class="level-info">
+              <div class="level-header">
+                <img id="current-system-current-level-image" src="" alt="Level Icon" class="trophy_level">
+                <div class="current-level-info">
+                  <div class="stats-row">
+                    <p class="info-text">Level <span id="current-system-current-level">1</span></p>
+                    <p id="current-system-progress-percentage" class="info-text">0%</p>
+                  </div>
+                  <div class="progress">
+                    <div id="current-system-current-progress" class="progress-bar" role="progressbar" aria-valuemin="0"
+                      aria-valuemax="100"></div>
+                  </div>
+                  <div class="stats-row" style="margin-top: 5px; opacity: 0.7; font-size: 0.85rem;">
+                    <p>Start: <span id="current-system-current-level-requirement">0</span></p>
+                    <p>Target: <span id="current-system-next-level-requirement">0</span></p>
+                  </div>
+                  <div class="stats-row">
+                    <p class="info-text"><span id="current-system-current-points">0</span> pts</p>
+                    <p class="requirement-text"><span id="current-system-points-until-next">0 left</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="next-level-box">
+                <img id="current-system-next-level-image" src="" alt="Next Level Icon" class="trophy_level"
+                  style="width:32px; height:32px;">
+                <span class="next-level-label">Next Rank:</span>
+                <span id="current-system-next-level" class="next-level-val">2</span>
+              </div>
+            </div>
+            <div class="flip-hint" title="View Distribution">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                <path
+                  d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+              </svg>
+            </div>
+          </div>
+          <!-- Back Face: Donut Chart -->
+          <div class="flip-back">
+            <h2 class="card-title">Visual Distribution</h2>
+            <div class="distribution-content">
+              <div class="donut-container">
+                <div id="trophy-donut-chart" class="donut-chart"></div>
+                <div class="donut-center">
+                  <span id="total-trophy-count">0</span>
+                  <span class="label">Total</span>
+                </div>
+              </div>
+              <div class="distribution-legend" id="distribution-legend">
+                <!-- Percentage breakdown list -->
+              </div>
+            </div>
+            <div class="flip-hint" title="View Progression">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                <path
+                  d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card target-calculator-card">
+        <h2 class="card-title">Target Calculator</h2>
+        <div class="desired-level-input">
+          <input type="number" id="desired-level" min="1" class="trophy-input" placeholder="Enter Target Level">
+        </div>
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="milestone" title="Next 50 or 100 levels">
+            <span class="icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="label">Next Milestone</span>
+          </button>
+          <button class="preset-btn" data-preset="rank" title="Next major rank">
+            <span class="icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="m17 11-5-5-5 5"></path>
+                <path d="m17 18-5-5-5 5"></path>
+              </svg>
+            </span>
+            <span class="label">Next Rank</span>
+          </button>
+          <button class="preset-btn" data-preset="max" title="Level 999">
+            <span class="icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
+              </svg>
+            </span>
+            <span class="label">Max Level</span>
+          </button>
+        </div>
+        <div id="desired-level-results" class="desired-level-results">
+          <!-- Results will be displayed here -->
+        </div>
+      </div>
+
+      <div class="card" id="milestones-card">
+        <h2 class="card-title">Upcoming Milestones</h2>
+        <div class="next-steps">
+          <!-- generated by the template -->
+        </div>
+      </div>
+    </div>
+
+    <template id="progress-bar-template">
+      <div class="level-info">
+        <div class="level-header">
+          <img id="current-system-current-level-image" src="" alt="Level Icon" class="trophy_level">
+          <div class="current-level-info">
+            <div class="stats-row">
+              <p class="info-text">Level <span id="current-system-current-level">1</span></p>
+              <p id="current-system-progress-percentage" class="info-text">0%</p>
+            </div>
+            <div class="progress">
+              <div id="current-system-current-progress" class="progress-bar" role="progressbar" aria-valuemin="0"
+                aria-valuemax="100"></div>
+            </div>
+            <div class="stats-row">
+              <p class="info-text"><span id="current-system-current-points">0</span> pts</p>
+              <p class="requirement-text"><span id="current-system-points-until-next">0 left</span></p>
+            </div>
+            <div style="display:none">
+              <p id="current-system-next-level-requirement"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="next-level-box">
+          <img id="current-system-next-level-image" src="" alt="Next Level Icon" class="trophy_level"
+            style="width:32px; height:32px;">
+          <span id="current-system-next-level" class="next-level-val">2</span>
+        </div>
+      </div>
+    </template>
+  </div>
+  <!-- Info Modal -->
+  <div id="info-modal" class="modal-overlay">
+    <div class="glass-card modal-content">
+      <h2 class="card-title">How TrophyCalc Works</h2>
+      <div class="modal-body">
+        <div class="info-section">
+          <h3>Point Values</h3>
+          <ul class="info-list">
+            <li><span class="bronze-text">Bronze</span>: 15 pts</li>
+            <li><span class="silver-text">Silver</span>: 30 pts</li>
+            <li><span class="gold-text">Gold</span>: 90 pts</li>
+            <li><span class="platinum-text">Platinum</span>: 300 pts</li>
+          </ul>
+        </div>
+        <div class="info-section">
+          <h3>Calculations</h3>
+          <p>The "Games needed" estimate is based on the average completion project, awarding approximately
+            <strong>1,350 points</strong> per game (equivalent to 1 Platinum + mixed trophies).
+          </p>
+        </div>
+        <div class="info-section">
+          <h3>Levels</h3>
+          <p>Level requirements scale as you progress, with different point thresholds for Bronze, Silver, Gold, and
+            Platinum ranks.</p>
+        </div>
+      </div>
+      <button id="close-info" class="clear-btn"
+        style="margin: 1.5rem auto 0; background: rgba(0, 170, 255, 0.1); border-color: rgba(0, 170, 255, 0.2); color: var(--ps-blue-vibrant);">Got
+        it!</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
